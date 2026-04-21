@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  margin: 30px;
+  background-color: black;
+  font-family: 'Cormorant Garamond';
+  font-size: 24px;
+  color: mintcream;
+
+}
+
+p {
+width:10%;
+    
+}
+
+#d1 {
+    text-align:center;
+    margin-top: 40px;
+}
+
+a {
+   text-decoration:none;
+   font-size: 18px;
+   margin: 0 10px;
+   color: white;
+}
+
+
+.word {
+    filter: blur(4px);
+    transition: filter 0.25s ease, opacity 0.25s ease;
+    cursor: default;
+    display: inline-block;
+}
+
+/* reveal on hover */
+.word:hover {
+    filter: blur(0px);
+}
+</style>
+</head>
+
+<body>
+
+<p id="text">
+Attentional control commonly referred to as concentration refers to an individual's capacity to choose what they pay attention to and what they ignore It is also known as endogenous attention or executive attention In lay terms attentional control can be described as an individual's ability to concentrate Primarily mediated by the frontal areas of the brain including the anterior cingulate cortex attentional control and attentional shifting are thought to be closely related to other executive functions such as working memory
+</p>
+
+<div id="d1"> 
+<a href="chapter4.html">←</a> &nbsp; 
+
+</div>
+
+<script>
+// wrap each word in span.word automatically
+const p = document.getElementById("text");
+const words = p.textContent.split(" ");
+
+p.innerHTML = words.map(w => `<span class="word">${w}&nbsp;</span>`).join("");
+
+</script>
+
+</body>
+</html>

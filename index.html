@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+  margin: 50px;
+  background-color: #FBF5EA;
+  font-family: 'Cormorant Garamond';
+  font-size: 24px;
+  color: #48251F;
+  word-spacing: 10px;
+  padding-left:150px;
+  padding-right:150px;
+}
+
+p {
+  
+  text-align: justify;
+}
+
+.word {
+  display: inline-block;
+  opacity: 1;
+  animation: fadeOut 3s linear forwards;
+  color: #BDCFD3;
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#d1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #48251F;
+}
+</style>
+</head>
+
+<body>
+  <p id="text">
+  The Decay theory is a theory that proposes that memory fades due to the mere passage of time. Information is therefore less available for later retrieval as time passes and memory strength wears away. When an individual learns something new, a neurochemical "memory trace" is created. However, over time this trace slowly disintegrates. Actively rehearsing information is believed to be a major factor counteracting this temporal decline. It is widely believed that neurons die off gradually as we age, yet some older memories can be stronger than most recent memories. Thus, decay theory mostly affects the short-term memory system, meaning that older memories (in long-term memory) are often more resistant to shocks or physical attacks on the brain. It is also thought that the passage of time alone cannot cause forgetting, and that decay theory must also take into account some processes that occur as more time passes.
+  </p>
+
+  <div id="d1">
+    <a href="D:\theweb\theweb\artist_book\chapter2.html">→</a>
+  </div>
+
+<script>
+const paragraph = document.getElementById("text");
+const words = paragraph.textContent.split(" ");
+
+paragraph.innerHTML = words.map((word, i) => {
+  return `<span class="word" style="animation-delay:${i * 0.25}s">${word}&nbsp;</span>`;
+}).join("");
+</script>
+
+</body>
+</html>

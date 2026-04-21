@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+   margin: 50px;
+   font-family: 'Cormorant Garamond';    
+}
+
+
+#text {
+   position: relative;
+   z-index: 1;
+   font-size: 40px;
+   color:lightgray;
+}
+
+/* floating memory copies */
+.clone {
+   position: absolute;
+   pointer-events: none;
+   font-size: 40px;
+   line-height: 1.5;
+   mix-blend-mode: multiply;
+   margin: 50px;
+   color: lightgrey;
+
+}
+
+#d1 {
+    text-align:center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+a {
+   text-decoration:none;
+   font-size: 18px;
+   margin: 0 10px;
+   color:lightpink;
+}
+
+#click {
+   position: absolute;
+   bottom: 30px;
+   left: 30px;
+   color:lightgrey;
+}
+
+</style>
+</head>
+
+<body>
+
+<p id="text">
+Extraneous cognitive load is unnecessary mental effort caused by poor instructional design, distracting content, or confusing presentation methods, which consumes limited working memory without helping learning. It is distinct from the essential, task-related "intrinsic" load. Reducing it involves streamlining materials and eliminating irrelevant information
+</p>
+<br> 
+<p id="click"> click the page </p>
+
+
+<div id="d1"> 
+<a href="chapter2.html">←</a> &nbsp; 
+<a href="chapter4.html">→</a>
+</div>
+
+<script>
+
+const baseText = document.getElementById("text").innerText;
+
+document.body.addEventListener("click", (e) => {
+
+    // avoid clicks on navigation
+    if (e.target.tagName === "A") return;
+
+    const clone = document.createElement("div");
+    clone.className = "clone";
+    clone.innerText = baseText;
+
+    // random position
+    const x = Math.random() * window.innerWidth * 0.8;
+    const y = Math.random() * window.innerHeight * 0.8;
+
+    clone.style.left = x + "px";
+    clone.style.top = y + "px";
+
+    document.body.appendChild(clone);
+});
+
+</script>
+
+</body>
+</html>

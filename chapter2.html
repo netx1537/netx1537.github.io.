@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  margin: 50px;
+  background-color: lightpink;
+  font-family: 'Cormorant Garamond';
+  font-size: 40px;
+  color: #48251F;
+}
+
+#para {
+  width: 40%; 
+}
+
+#d1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #48251F;
+  margin: 0 10px;
+}
+
+.drift {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color:  #FBF5EA ;
+}
+
+.drift.active {
+  color: #FBF5EA;
+}
+
+#click {
+   color: #FBF5EA ;
+   font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<p id=para>
+Semantic drift is a form of language change regarding the evolution of word usage—usually to the point that the 
+<span class="drift">modern</span>, meaning is radically different from the original usage. In diachronic (or historical) linguistics, semantic change is a change in one of the meanings of a word. Every word has a <span class="drift"> variety </span> of senses and connotations, which can be added, removed, or <span class="drift">altered </span> over time, often to the extent that cognates across space and time have very <span class="drift"> different </span> meanings. The study of semantic change can be <span class="drift"> seen </span> as part of etymology, onomasiology, semasiology, and semantics.
+</p>
+
+<div id="d1"> 
+<a href="index.html">←</a>
+<a href="chapter3.html">→</a>
+</div>
+
+<p id="click"> click the word </p>
+
+</div>
+
+<script>
+
+const driftMap = {
+  "modern": ["present", "current", "contemporary"],
+  "altered": ["changed", "adjusted", "modified"],
+  "different": ["distinct", "separate", "unrelated", "disparate"],
+  "variety": ["diversity", "variation"],
+  "seen": ["perceived", "noticed"]
+};
+
+document.querySelectorAll(".drift").forEach(el => {
+  el.addEventListener("click", () => {
+
+    let current = el.textContent.trim();
+    let variants = driftMap[current] || [current];
+
+    let index = variants.indexOf(current);
+    index = (index + 1) % variants.length;
+
+    el.textContent = variants[index];
+    el.classList.add("active");
+  });
+});
+
+</script>
+
+</body>
+</html>
